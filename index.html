@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+  <div class="container">
+    <div class="chart-general">
+      <h1><strong>General Dashboard</strong></h1>
+      <div class="general-total">
+        <h1>186</h1>
+        <h3>Orders Orverall - Last 24 Hours</h3>
+      </div>
+      <h6>35 Las Gringas <i class="fa-solid fa-circle icon"></i> 94 Ameaça Vegetal <i class="fa-solid fa-circle icon"></i> 57 DDM</h6>
+      <canvas id="lineChart"></canvas>
+      <div class="donut-charts">
+        <canvas id="donutChart2" class="platforms-foodriders"></canvas>
+        <canvas id="donutChart1" class="platforms"></canvas>
+        <canvas id="donutChart3" class="foodriders"></canvas>
+      </div>
+      <div class="donut-charts">
+        <div class="numeric-box">
+          <div class="new-customers">
+            <h2>15</h2>
+            <div class="customers-text">
+              <h4>New</h4>
+              <h4>Customers</h4>
+            </div>
+            <div class="percent">
+              <i class="fa-solid fa-arrow-trend-up"></i>
+              <h6>+5%</h6>
+            </div>
+          </div>
+          <div class="total-spend">
+            <div>
+              <h2>€600</h2>
+              <h4>Total Spend</h4>
+            </div>
+            <div class="percent">
+              <i class="fa-solid fa-arrow-trend-up"></i>
+              <h6>+10%</h6>
+            </div>
+          </div>
+        </div>
+        <canvas id="donutChart4" class="general-menus"></canvas>
+        <canvas id="donutChart5" class="general-menus"></canvas>
+      </div>
+    </div>
+    <div class="chart-items">
+      <h1>Products Dashboard</h1>
+      <canvas id="itemChart"></canvas>
+      <select id="dataset-select">
+        <option value="items">Products Total</option>
+        <option value="ameaça">Ameaça Vegetal</option>
+        <option value="gringas">Las Gringas</option>
+        <option value="ddm">Duro De Matar</option>
+      </select>
+      <h4>Top 10 Best Sellers</h4>
+      <div>
+        <ul>
+            <li><span class="ranking">1.</span> <span class="item">Hamburguesa Ameaça Vegetal</span></li>
+            <li><span class="ranking">2.</span> <span class="item">Queso Fundido</span></li>
+            <li><span class="ranking">3.</span> <span class="item">Margarita Sin Verguenza</span></li>
+            <li><span class="ranking">4.</span> <span class="item">Tacos de Carnitas</span></li>
+            <li><span class="ranking">5.</span> <span class="item">Chiles en Nogada</span></li>
+            <li><span class="ranking">6.</span> <span class="item">Tostadas de Tinga</span></li>
+            <li><span class="ranking">7.</span> <span class="item">Taco de Asada</span></li>
+            <li><span class="ranking">8.</span> <span class="item">Ensalada Nopal</span></li>
+            <li><span class="ranking">9.</span> <span class="item">Michelada</span></li>
+            <li><span class="ranking">10.</span> <span class="item">Taco al Pastor</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="chart-orders">
+      <h1>Orders Dashboard</h1>
+      <div class="orders-container">
+        <div class="type-container">
+          <canvas id="typeChart"></canvas>
+          <div class="time-frame-selector">
+            <button id="1w" class="time-frame-button">1W</button>
+            <button id="1m" class="time-frame-button">1M</button>
+            <button id="3m" class="time-frame-button">3M</button>
+            <button id="6m" class="time-frame-button">6M</button>
+            <button id="1y" class="time-frame-button">1Yr</button>
+          </div>
+        </div>
+        <div class="channel-chart">
+          <canvas id="channelChart"></canvas>
+          <div class="time-frame-selector">
+            <button class="timeframe-button" onclick="changeTimeFrame('1W')">1W</button>
+            <button class="timeframe-button" onclick="changeTimeFrame('1M')">1M</button>
+            <button class="timeframe-button" onclick="changeTimeFrame('3M')">3M</button>
+            <button class="timeframe-button" onclick="changeTimeFrame('6M')">6M</button>
+            <button class="timeframe-button" onclick="changeTimeFrame('1Yr')">1Yr</button>
+          </div>
+        </div>
+      </div>
+      <div class="locations-container">
+        <div class="location-chart">
+          <canvas id="locationChart"></canvas>
+        </div>
+        <div class="orders-line-chart">
+          <canvas id="ordersLineChart"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="chart-clients">
+      <h1>Clients Dashboard</h1>
+      <div class="clients-container">
+        <div class="unique-clients">
+          <h1>874</h1>
+          <div>
+            <h4>Nº of Unique</h4><h4 class="clients">Clients</h4>
+          </div>
+        </div>
+        <div class="bar-container">
+          <div class="bar dine-in">
+            <span>Dine-in</span>
+            <div class="percentage">34%</div>
+          </div>
+          <div class="bar take-away">
+            <span>Take-away</span>
+            <div class="percentage">6%</div>
+          </div>
+          <div class="bar delivery">
+            <span>FR Delivery</span>
+            <div class="percentage">60%</div>
+          </div>
+        </div>
+        <div class="client-donut">
+          <canvas id="donutClient" class="general-menus"></canvas>
+          <div id="chartjsLegend" class="chartjsLegend"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script-pie.js" async defer></script>
+  <script src="script-line.js" async defer></script>
+  <script src="script-donut.js" async defer></script>
+  <!-- <script>
+    const percentages = [34, 6, 60]; // percentages corresponding to Dine-in, Take-away, FR Delivery
+    const bars = document.querySelectorAll('.bar');
+
+    bars.forEach((bar, index) => {
+      const percentageBar = document.createElement('div');
+      percentageBar.style.width = `${percentages[index]}%`;
+      percentageBar.style.background = '#4caf50';
+      percentageBar.style.height = '20px';
+      percentageBar.style.marginTop = '5px';
+      bar.appendChild(percentageBar);
+    });
+  </script> -->
+  </body>
+</html>
